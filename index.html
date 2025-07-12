@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group-5 Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpg" href="Logo.jpg">
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="login-section" class="centered">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="email" id="login-email" placeholder="Email" required />
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+        </form>
+    </div>
+    <!-- Registration Section (hidden by default) -->
+    <div id="register-section" class="centered" style="display:none;">
+        <h2>Register</h2>
+        <form id="register-form">
+            <input type="email" id="reg-email" placeholder="Email" required />
+            <input type="text" id="reg-username" placeholder="Username" required />
+            <input type="password" id="reg-password" placeholder="Password" required />
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </form>
+    </div>
+    <!-- Main Content (hidden until login) -->
+    <div id="main-content" style="display:none;">
+        <header>
+            <h1>Voltmart</h1>
+            <button id="cart-btn">Cart (<span id="cart-count">0</span>)</button>
+        </header>
+        <section id="products-section">
+            <h2 style="margin-left: 10px;">Products</h2>
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                <select style="margin-left: 10px;" id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="Smartphone">Smartphone</option>
+                    <option value="Headphones">Headphones</option>
+                    <option value="Laptops">Laptops</option>
+                    <option value="Speakers">Speakers</option>
+                    <option value="Tablets">Tablets</option>
+                    <option value="Smartwatches">Smartwatches</option>
+                    <option value="Cameras">Cameras</option>
+                    <option value="Monitors">Monitors</option>
+                    <option value="Keyboards">Keyboards</option>
+                    <option value="Mice">Mice</option>
+                    <option value="Printers">Printers</option>
+                    <option value="Routers">Routers</option>
+                    <option value="Drones">Drones</option>
+                    <option value="Game Consoles">Game Consoles</option>
+                    <option value="Projectors">Projectors</option>
+                    <option value="Power Banks">Power Banks</option>
+                    <option value="Smart Home">Smart Home</option>
+                    <option value="Wearables">Wearables</option>
+                    <option value="Storage">Storage</option>
+                    <option value="Accessories">Accessories</option>
+                </select>
+
+                <select id="sort-filter">
+                    <option value="default">Sort By</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="price-asc">Price (Low-High)</option>
+                    <option value="price-desc">Price (High-Low)</option>
+                </select>
+                <input type="text" id="search-input" placeholder="Search products..." style="margin-top: 20px;">
+                <div id="features-animation"></div>
+                
+            </div>
+            <div id="products-list" class="product-grid"></div>
+            <!-- Product Details Modal -->
+            <div id="product-modal" class="modal hidden">
+                <div class="modal-content" id="product-modal-content">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+        </section>
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Credits</h3>
+                    <ul>
+                        <li>Nakshatra Sharma</li>
+                        <li>Gyan Ranjan</li>
+                        <li>Kunal Dadlani</li>
+                        <li>Arpito Sadhu</li>
+                        <li>Prantik</li>
+                    </ul>
+                </div>
+                <img src="Logo.jpg" alt="logo" style="width: 500px;" height="400px">
+                <div class="footer-section">
+                    <h3>Contact Details</h3>
+                    <div class="contact-person">
+                        <h4>Nakshatra Sharma</h4>
+                        <p>Email: nakshatra.sharma301@gmail.com</p>
+                        <p>Instagram: nakshatra20252025</p>
+                    </div>
+                    <div class="contact-person">
+                        <h4>Gyan Ranjan</h4>
+                        <p>Email: sanupanda141@gmail.com</p>
+                        <p>Instagram: sanu1593629</p>
+                    </div>
+                    <div class="contact-person">
+                        <h4>Kunal Dadlani</h4>
+                        <p>Instagram: kunal_d2506</p>
+                    </div>
+                    <div class="contact-person">
+                        <h4>Arpito Sadhu</h4>
+                        <p>Email: arpitosadhu55@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2025 Voltmart. All rights reserved. | This project is created for educational purposes only.</p>
+            </div>
+        </footer>
+        <!-- Cart Sidebar -->
+        <aside id="cart-sidebar" class="cart-sidebar hidden">
+            <button id="cart-close-x" class="cart-close-x">&times;</button>
+            <h3>Your Cart</h3>
+            <ul id="cart-items"></ul>
+            <div id="cart-total"></div>
+            <button id="place-order-btn">Place Order</button>
+            <button id="close-cart-btn">Close</button>
+        </aside>
+        <!-- Order Confirmation Modal -->
+        <div id="order-modal" class="modal hidden">
+            <div class="modal-content">
+                <p>Order placed successfully!</p>
+                <button id="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
